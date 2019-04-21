@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<?php
+include('login.php'); // Includes Login Script
+if(isset($_SESSION['login_user'])){
+header("location: profile.php");
+}
+?>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>LightFoot IDE - About & Contact</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+
+    <style>
+        footer {
+            position: bottem;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+    </style>
+
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <nav class="navbar navbar-inverse">
+                <nav class="navbar navbar-inverse">
+                        <div class="container-fluid">
+                          <div class="navbar-header">
+                            <a class="navbar-brand" href="/">LightFoot IDE Online</a>
+                          </div>
+                          <ul class="nav navbar-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="dropdown">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">SignUp & Profile
+                              <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="login.php">Login</a></li>
+                                <li><a href="signup.php">SignUp</a></li>
+                                <li><a href="logout.php">Logout</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="ide.html">Online IDE</a></li>
+                            <li class="active"><a href="FaQ.html">FaQ</a></li>
+                            <li><a href="about.html">About & Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <align: right><img width="70" height="70" src="IMG/logo.png" class="img-circle" alt="Logo">
+                <h1><center style="color:white">LightFoot IDE Online</center></h1>
+                <h5><center style="color:white">Login</center></h5>
+                <hr />
+                <br />
+                <br />
+                <?php
+                session_start();
+                $error = '';
+                if (isset($_POST['submit'])) {
+                  if (empty($_POST['username']) || empty($_POST['password'])) {
+                    $error = "Username or Password is invalid";
+                  }
+                  else{
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $conn = mysqli_connect("localhost", "root", "", "loginsystem");
+                    $query = "SELECT username, password from login where username=? AND password=? LIMIT 1";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("ss", $username, $password);
+                    $stmt->execute();
+                    $stmt->bind_result($username, $password);
+                    $stmt->store_result();
+                    if($stmt->fetch()) {
+                      $_SESSION['login_user'] = $username; // Initializing Session
+                    header("location: profile.php"); // Redirecting To Profile Page
+                  }
+                  mysqli_close($conn);
+                }
+                ?>
+                <br />
+                <br />
+                <br />
+                <hr />
+                <footer>
+                    <p>Posted by: Zachary AkA <a href="https://github.com/CRO-THEHACKER">
+                    CRO-THEHACKER </a></p>
+                    <p>Find the site map <a href="sitemap.html">
+                    here</a> or the XML <a href="sitemap.xml">
+                    here</a></p>
+                    <p>Contact information: <a href="mailto:zachary@lightfoot.ml">
+                    zachary@lightfoot.ml</a>.</p>
+            </footer>

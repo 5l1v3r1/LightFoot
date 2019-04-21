@@ -1,0 +1,8 @@
+DirectoryIndex index.html
+AuthUserFile /protected/.htpasswd
+AuthType Basic
+AuthName "Admins Needed"
+
+<Files "/protected/">
+  Require valid-user
+</Files>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>LightFoot IDE</title>
+        <meta name="description" content="">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="1037465454628-4dirucooka4pr53useai6d5n4goc4pl6.apps.googleusercontent.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </head>
+
+    <style>
+        footer {
+            position: bottem;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+    </style>
+
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <nav class="navbar navbar-inverse">
+                <nav class="navbar navbar-inverse">
+                        <div class="container-fluid">
+                          <div class="navbar-header">
+                            <a class="navbar-brand" href="/">LightFoot IDE Online</a>
+                          </div>
+                          <ul class="nav navbar-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="dropdown">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">SignUp & Profile
+                              <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="login.php">Login</a></li>
+                                <li><a href="signup.php">SignUp</a></li>
+                                <li><a href="logout.php">Logout</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="ide.html">Online IDE</a></li>
+                            <li class="active"><a href="FaQ.html">FaQ</a></li>
+                            <li><a href="about.html">About & Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <align: right><img width="70" height="70" src="IMG/logo.png" class="img-circle" alt="Logo">
+                <h1><center style="color:white">LightFoot IDE Online</center></h1>
+                <h5><center style="color:white">FaQ</center></h5>
+                <hr />
+                <br />
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                <script>
+                  function onSignIn(googleUser) {
+                    // Useful data for your client-side scripts:
+                    var profile = googleUser.getBasicProfile();
+                    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                    console.log('Full Name: ' + profile.getName());
+                    console.log('Given Name: ' + profile.getGivenName());
+                    console.log("Image URL: " + profile.getImageUrl());
+                    console.log("Email: " + profile.getEmail());
+                    // The ID token you need to pass to your backend:
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    console.log("ID Token: " + id_token);
+                  }
+                </script>
+                <br />
+                <hr />
+                <footer>
+                    <p>Posted by: Zachary AkA <a href="https://github.com/CRO-THEHACKER">
+                    CRO-THEHACKER </a></p>
+                    <p>Find the site map <a href="sitemap.html">
+                    here</a> or the XML <a href="sitemap.xml">
+                    here</a></p>
+                    <p>Contact information: <a href="mailto:zachary@lightfoot.ml">
+                    zachary@lightfoot.ml</a>.</p>
+            </footer>
