@@ -1,0 +1,6 @@
+The cgi-bin/perlmodules folder is mostly empty by default, but it exists so if
+your server is missing any of the Perl modules that UserBase needs (or that
+it can optionally use), then you have a ready-made place to put them:
+UserBase will automatically search this folder when attempting to load its
+Perl modules.
+
